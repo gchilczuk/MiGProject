@@ -1,0 +1,10 @@
+*.pyc
+*.pyo
+*db*
+*secrets.json
+*sublime*
+
+*about-value.html*
+
+*static*
+*media*

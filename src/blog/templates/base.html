@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  
+  <title>{% block title %} Base {% endblock title %}</title> 
+  
+  {% load static %}
+  <link href={% static "css/style.css" %} type="text/css" rel="stylesheet">
+  <link rel="shortcut icon" href={% static "/favicon.ico" %} type="image/x-icon">
+  <link rel="icon" href={% static "/favicon.ico" %} type="image/x-icon">
+  
+  {% block link %}
+  
+  {% endblock link %}
+  
+  <link href="https://fonts.googleapis.com/css?family=Baloo|Raleway|Sansita:700" rel="stylesheet"> 
+  
+</head>
+<body>
+  <div id="container">
+    
+    <header id="header">
+    </header>
+    
+     <nav id="menu">
+        <ul>
+          <li><a href="../../../../../../../../../../../../../../../../blog/">Strona główna</a></li>
+          <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">Kategorie</a>
+                <div class="dropdown-content">
+                {% for cat in categories%}
+                  <a href="{{ cat.get_absolute_url }}">{{ cat.title }}</a>
+                {% endfor %}
+                </div>
+            </li>
+          <li><a href="/blog/about">O nas</a></li>
+        </ul>
+      </nav>
+      
+    
+    
+    
+    <div id="main">
+      
+      <div id="content">
+        {% block content %}
+      
+        {% endblock content %}
+      </div>
+      
+      <aside id="right-menu">
+        {% block rightmenu %}
+        
+        {% endblock rightmenu %}
+      </aside>
+      
+    </div>
+    
+    <footer>
+      &copy; 2017 MiG Project
+    </footer>
+  
+  </div>
+    
+</body>
+</html>

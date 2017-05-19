@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %} Strona główna {% endblock title %}
+
+{% block link %}
+{% load static %}
+  <link href={% static "css/home.css" %} type="text/css" rel="stylesheet">
+{% endblock link %}
+  
+{% block content %}
+      
+
+{% for item in posts%}
+  <article class="wpis">
+    
+    <div class="post-header">
+      {% if item.photo_rep %}
+      <img class="post-header" src="{{ item.photo_rep.url }}">
+      {% endif %}
+      
+      <h4>{{item.title}}</h4>
+      <p class="date">{{item.posted|date:"d.m.Y"}}</p>
+      
+      <div class="post-info">
+        <p>Autor: {% for aut in item.author.all %} <a href="{{ aut.get_absolute_url }}"> {{ aut }} </a>{% endfor %}</p>
+        <p>Kategoria: <a href="{{ item.category.get_absolute_url }}">{{ item.category }}</a></p>
+        <p>Tag: {% for tag in item.tags.all %} <a href="{{ tag.get_absolute_url }}">{{ tag }}, </a> {% endfor %} </p>
+      </div>
+    </div>
+    
+    <div class="wpis-content">{{item.first_p|safe}} </div>
+    
+    <a href="{{ item.get_absolute_url }}"><button type="button" class="btn-read-more">Czytaj dalej</button></a>  
+  </article>
+
+  <div class="post-divider" >-</div> 
+  {% endfor %}
+
+  {% if posts.has_previous %}
+  {% if view_type == "HomeView" %}
+  <a href="{% url proper_url posts.previous_page_number %}">
+  {% elif view_type == "CategoryView" %}
+  <a href="{% url proper_url slug posts.previous_page_number %}">
+  {% elif view_type == "TagView" %}
+  <a href="{% url proper_url slug posts.previous_page_number %}">
+  {% elif view_type == "ArchiveView" %}
+  <a href="{% url proper_url year posts.previous_page_number %}">
+  {% elif view_type == "AuthorView" %}
+  <a href="{% url proper_url user posts.previous_page_number %}">
+  {% endif %}
+  <button type="button" class="btn-prev">Poprzednia</button></a>
+  {% endif %}
+
+  {% if posts.has_next %}
+  {% if view_type == "HomeView" %}
+  <a href="{% url proper_url posts.next_page_number %}">
+  {% elif view_type == "CategoryView" %}
+  <a href="{% url proper_url slug posts.next_page_number %}">
+  {% elif view_type == "TagView" %}
+  <a href="{% url proper_url slug posts.next_page_number %}">
+  {% elif view_type == "ArchiveView" %}
+  <a href="{% url proper_url year posts.next_page_number %}" >
+  {% elif view_type == "AuthorView" %}
+  <a href="{% url proper_url user posts.next_page_number %}">
+  {% endif %}
+  <button type="button" class="btn-next" >Następna</button></a>
+  {% endif %}
+
+{% endblock content %}
+
+{% block rightmenu %}
+
+  <div id="about">
+    
+    <h3>Dziś jest </h3>
+    
+    <p> {% now "DATETIME_FORMAT" %} </p>
+    
+    <p>Miło, że nas odwiedzasz!</p>
+
+  </div>
+
+  <div id="tags">
+    <h3>Tagi:</h3>
+    <ul>
+      {% for tag in tags%}
+      <li><a href="{{ tag.get_absolute_url }}"><button type="button" class="btn-tag">{{ tag.title }}</button></a></li>
+      {% endfor %}
+    </ul>
+
+  </div>
+<!--
+    
+  <div id="archive">
+    <h3>Archiwium</h3>  
+    
+    <ul class="ul-years">
+      <li><h4> 2017 </h4>
+        <ul class="ul-months">
+          <li>Styczeń
+          <ul class="ul-posts">
+            <li><a href="">Załóż gęślą jaźń</a></li>
+            <li><a href="">Załóż gęślą jaźń</a></li>
+            <li><a href="">Załóż gęślą jaźń</a></li>
+          </ul></li>
+          
+          <li>Luty
+          <ul class="ul-posts">
+            <li>Załóż gęślą jaźń</li>
+            <li>Załóż gęślą jaźń</li>
+            <li>Załóż gęślą jaźń</li>
+          </ul></li>
+          
+        </ul></li>
+      <li> <h4>2016</h4></li>
+    </ul>
+    
+  </div>
+-->
+
+  
+{% endblock rightmenu %}

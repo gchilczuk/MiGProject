@@ -1,0 +1,47 @@
+{% extends "home.html" %}
+
+{% block title %} {{post.title}} {% endblock title %}
+
+{% block link %}
+{% load static %}
+  <link href={% static "css/home.css" %} type="text/css" rel="stylesheet">
+  <link href={% static "css/wpis.css" %} type="text/css" rel="stylesheet">
+{% endblock link %}
+
+{% block content %}
+  <article class="wpis">
+    
+    <div class="post-header">
+      {% if post.photo_rep %}
+      <img class="post-header" src="{{ post.photo_rep.url }}">
+      {% endif %}
+      <h4>{{ post.title }}</h4>
+      <p class="date">{{ post.posted|date:"d.m.Y" }}</p>
+      
+      <div class="post-info">
+        <p>Autor: {% for aut in post.author.all %}  <a href="{{ aut.get_absolute_url }}"> {{ aut }} </a> {% endfor %}</p>
+        <p>Kategoria: <a href="{{ post.category.get_absolute_url }}">{{ post.category }}</a></p>
+        <p>Tag: {% for tag in post.tags.all %} <a href="{{ tag.get_absolute_url }}">{{ tag }}, </a> {% endfor %} </p>
+      </div>
+    </div>
+
+    <div class="wpis-content">{{post.body|safe}} </div>
+    
+  </article>
+
+{% comment %}
+  <hr>
+
+  <form action="">
+    <fieldset>
+    Name:<br>
+    <input type="text" name="name"><br>
+    Your comment:<br>
+    <textarea name="comment" rows="10" cols="30"></textarea><br>
+    <input type="submit" value="Submit">
+    </fieldset>
+  
+  </form>
+{% endcomment %}
+
+{% endblock content %}gi

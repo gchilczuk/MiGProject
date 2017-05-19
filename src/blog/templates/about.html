@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} O nas {% endblock title %}
+
+{% block link %}
+{% load static %}
+  <link href={% static "css/home.css" %} type="text/css" rel="stylesheet">
+  <link href={% static "css/about.css" %} type="text/css" rel="stylesheet">
+{% endblock link %}
+
+{% block content %}
+
+{% if content %}
+{{ content.body|safe }}
+{% endif %}
+
+{% endblock content %}
