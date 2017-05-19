@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #6B7A8F;
+}
+
+a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #021523;
+}
+
+#container {
+/*  border: 2px solid black;*/
+  width: 960px;
+  margin: 0 auto;
+  overflow: auto;
+  background-color: #e7edee; 
+  box-shadow: 0px 9px 13px 0px;
+}
+
+#header {
+/*  border: 1px solid black;*/
+  overflow: auto;
+  height: 200px;
+  background-image: url(../images/sky-new.png);
+  background-repeat: no-repeat;
+  background-position: bottom top;
+}
+
+#menu ul, footer {
+/*  border: 2px solid green;*/
+  height: 40px;
+  font-family: 'Baloo', cursive;
+  margin: 0;
+  background: rgba(250,239,92,1);
+  background: -moz-linear-gradient(top, rgba(250,239,92,1) 0%, rgba(255,183,66,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(250,239,92,1)), color-stop(100%, rgba(255,183,66,1)));
+  background: -webkit-linear-gradient(top, rgba(250,239,92,1) 0%, rgba(255,183,66,1) 100%);
+  background: -o-linear-gradient(top, rgba(250,239,92,1) 0%, rgba(255,183,66,1) 100%);
+  background: -ms-linear-gradient(top, rgba(250,239,92,1) 0%, rgba(255,183,66,1) 100%);
+  background: linear-gradient(to bottom, rgba(250,239,92,1) 0%, rgba(255,183,66,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#faef5c', endColorstr='#ffb742', GradientType=0 );
+}
+
+#menu ul {
+  list-style-type: none;
+/*  overflow: hidden; */
+/*  padding-left: 30px;*/
+}
+
+#menu li {
+/*  border: 2px solid red;*/
+  float: left;
+}
+
+#menu li a, .dropbtn {
+/*  border: 2px solid blue;*/
+  display: inline-block;
+  height: 36px;
+  width: 160px;
+  padding: 2px 10px;
+  color: #021523;
+  text-align: center;
+  font-size: 22px;
+}
+
+/* .dropdown:hover .dropbtn*/
+#menu a:hover {
+  background-color: #F7882F;
+  background: rgba(250,239,92,1);
+  background: -moz-linear-gradient(top, rgba(250,239,92,1) 0%, rgba(247,136,47,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(250,239,92,1)), color-stop(100%, rgba(247,136,47,1)));
+  background: -webkit-linear-gradient(top, rgba(250,239,92,1) 0%, rgba(247,136,47,1) 100%);
+  background: -o-linear-gradient(top, rgba(250,239,92,1) 0%, rgba(247,136,47,1) 100%);
+  background: -ms-linear-gradient(top, rgba(250,239,92,1) 0%, rgba(247,136,47,1) 100%);
+  background: linear-gradient(to bottom, rgba(250,239,92,1) 0%, rgba(247,136,47,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#faef5c', endColorstr='#f7882f', GradientType=0 );
+}
+
+#menu li.dropdown {
+  display: inline-block;
+}
+
+#main {
+  overflow: auto;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+#content {
+  float:left;
+  width: 660px;
+  min-height: 400px;
+}
+
+#right-menu {
+/*  border: 2px solid black;*/
+  float: right;
+  width: 250px;
+  min-height: 400px;
+  text-align: center;
+  margin: 5px;
+/*  padding: 10px 0 0 40 px;*/
+}
+
+footer {
+/*  font-size: 15px;*/
+  color: #021523;
+  text-align: center;
+  padding-top: 8px;
+}
+
+
+
+/*  Dropdown menu  */
+
+.dropbtn {
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: #e7edee;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}

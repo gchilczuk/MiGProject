@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#about {
+  width: 100%;
+  margin: 5px 20px 5px 30px;
+  font-family: 'Raleway', sans-serif;
+}
+
+h2 {
+  font-size: 30px;
+  font-family: 'Sansita', sans-serif;
+  color: #F7882F;
+}
+
+b {
+  font-size: 20px;
+  font-family: 'Sansita', sans-serif;
+  color: #F7882F;
+}
